@@ -17,7 +17,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '11'
-          maven-version: '3.6.1'
+          mavenVersionOption: 'Default'
 
 
       - name: Upload Artifact
