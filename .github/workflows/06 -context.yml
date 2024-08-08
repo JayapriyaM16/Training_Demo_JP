@@ -1,31 +1,29 @@
 name: 06 - context
+
 on: push
+
 env:
- GLOBAL_VAR: "Available to all jobs"
+  GLOBAL_VAR: "Available to all jobs"
+
 jobs:
   job1:
     runs-on: ubuntu-latest
     env:
       JOB_VAR: "Available to this job only"
+    steps:
+      - name: Use job variable
+        run: echo "Job variable is $JOB_VAR"
 
   example_job:
     runs-on: ubuntu-latest
     env:
       JOB_VAR: "job"
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
-      
-      - name: Use global variable
-        run: echo "Global variable $GLOBAL_VAR"
-      
-      - name: Use job variable
-        run: echo "Job variable $JOB_VAR"
-      
-      - name: Use step variable
+      - name: Step with specific variable
         env:
-          STEP_VAR: "step"
+          STEP_VAR: "Available to this step only"
         run: |
-          echo "Step variable $STEP_VAR"
-          echo "Job variable  still $JOB_VAR"
-          echo "Global variable still $GLOBAL_VAR"
+          echo "Step variable is $STEP_VAR"
+          echo "Job variable is still $JOB_VAR"
+          echo "Global variable is still $GLOBAL_VAR"
+
