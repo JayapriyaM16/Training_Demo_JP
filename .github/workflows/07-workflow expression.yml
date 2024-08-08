@@ -6,7 +6,7 @@ on:
     inputs:
       debug: 
         type: boolean
-        default: true
+        default: false
 
 jobs:
   echo:
@@ -21,4 +21,4 @@ jobs:
       - name: '[debug] Print when triggered from master'
         if: ${{ inputs.debug && github.ref == 'refs/heads/master' }}
         run: |
-          echo "I was triggered from master"
+          echo "I triggered from master"
