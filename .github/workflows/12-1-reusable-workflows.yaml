@@ -1,6 +1,7 @@
 name: 12 - 1 - Reusable Workflows - Reusable Definition
 
-on:
+on:push
+
   workflow_call:
     inputs:
       target-directory:
