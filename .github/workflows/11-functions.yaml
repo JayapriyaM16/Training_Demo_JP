@@ -13,15 +13,18 @@ jobs:
 
       - name: Print PR title
         if: github.event_name == 'pull_request'
-       # run: echo "PR Title: ${{ github.event.pull_request.title }}"
+        run: |
+          echo "PR Title: ${{ github.event.pull_request.title }}"
 
       - name: Debug GitHub context
         if: github.event_name == 'pull_request'
-        run: echo "${{ toJson(github.event) }}"
+        run: |
+          echo "${{ toJson(github.event) }}"
 
       - name: Print PR labels
         if: github.event_name == 'pull_request'
-       # run: echo "PR Labels: ${{ toJson(github.event.pull_request.labels) }}"
+        run: |
+          echo "PR Labels: ${{ toJson(github.event.pull_request.labels) }}"
 
       - name: Bug step
         if: failure() && contains(github.event.pull_request.title, 'fix')
