@@ -5,7 +5,7 @@ on:
   workflow_dispatch:
 
 jobs:
-  fix:
+  echo1:
     runs-on: ubuntu-latest
     steps:
       - name: Sleep for 20 seconds
